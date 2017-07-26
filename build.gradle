@@ -34,7 +34,7 @@ ext["thymeleaf.version"] = "3.0.7.RELEASE"
 
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.springframework.boot:spring-boot-starter-security'
 	compile 'org.springframework.boot:spring-boot-starter-activemq'
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -53,5 +53,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.0'
+	gradleVersion = '4.0'
 }
