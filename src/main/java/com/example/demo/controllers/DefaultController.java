@@ -11,11 +11,6 @@ public class DefaultController {
 		return "/login";
 	}
 
-	@GetMapping("/logout")
-	public String logout() {
-		return "/j-security-logout";
-	}
-
 	@GetMapping("/")
 	public String home() {
 		return "/home";

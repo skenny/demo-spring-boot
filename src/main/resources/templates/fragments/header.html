@@ -3,6 +3,10 @@
 	<body>
 		<div th:fragment="header">
 			Header Fragment!
+			<form id="logout" th:action="@{/logout}" method="POST">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			</form>
+			<a href="javascript:document.getElementById('logout').submit()">Logout</a>
 		</div>
 	</body>
 </html>

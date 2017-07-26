@@ -15,11 +15,9 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests()
-				.antMatchers("/").permitAll()
-				.anyRequest().authenticated()
+			.authorizeRequests().anyRequest().authenticated()
 			.and().formLogin().loginPage("/login").permitAll()
-			.and().logout().logoutUrl("/logout").permitAll()
+			.and().logout().permitAll()
 			.and().exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 	}
 
@@ -27,7 +25,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 			.withUser("user").password("password").roles("USER")
-			.and().withUser("admin").password("password").roles("ADMIN");
+			.and().withUser("admin").password("password").roles("ADMIN", "USER");
 	}
 
 }
