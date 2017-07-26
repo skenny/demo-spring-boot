@@ -6,7 +6,6 @@ The following libraries are already integrated:
 - Spring MVC with Thymeleaf 3.0 and Layout Dialect
 - Spring Security
 - ActiveMQ
-- JDBC with HikariCP and Postgres
-- Flyway
+- JDBC with HikariCP, Postgres and Flyway
 - Ebean ORM
 
