@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Home</title>
+	</head>
+	<body>
+		<th:block layout:fragment="content">
+			<h1>Welcome!</h1>
+			<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+		</th:block>
+	</body>
+</html>

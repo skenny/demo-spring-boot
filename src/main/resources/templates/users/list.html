@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Log In</title>
+	</head>
+	<body>
+		<th:block layout:fragment="content">
+			<h1>Users</h1>
+			<ul>
+				<li th:each="user, userStat : ${users}">
+					<span th:text="|${userStat.count}. |">1.</span><a th:href="@{|/users/${user.id}}" th:text="${user}">User Name</a>
+				</li>
+			</ul>
+		</th:block>
+	</body>
+</html>

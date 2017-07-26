@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Spring Boot Demo</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+		<link rel="stylesheet" href="/css/normalize.min.css">
+		<link rel="stylesheet" href="/css/main.css">
+
+		<script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	</head>
+	<body>
+		<div class="header-container">
+			<header class="wrapper clearfix">
+				<div th:replace="fragments/header :: header">
+					<h1 class="title">Header</h1>
+					<nav>
+						<ul>
+							<li><a href="#">Menu Item 1</a></li>
+							<li><a href="#">Menu Item 2</a></li>
+							<li><a href="#">Menu Item 3</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+		</div>
+
+		<div class="main-container">
+			<div class="main wrapper clearfix">
+				<div layout:fragment="content">
+					<p>Content goes here...</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-container">
+			<footer class="wrapper">
+				<div th:replace="fragments/footer :: footer">Footer</div>
+			</footer>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+		<script src="/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+	<head>
+		<title>Log In</title>
+	</head>
+	<body>
+		<th:block layout:fragment="content">
+			<form th:action="@{/users/save}" th:object="${user}" method="POST">
+				<input type="hidden" name="id" value="" th:value="*{id}" />
+				<table>
+					<tbody>
+						<tr>
+							<td class="label">Id</td>
+							<td th:text="*{id}" />
+						</tr>
+						<tr>
+							<td class="label">First Name</td>
+							<td th:text="*{firstName}" />
+						</tr>
+						<tr>
+							<td class="label">Last Name</td>
+							<td th:text="*{lastName}" />
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</th:block>
+    </body>
+</html>
