@@ -5,7 +5,7 @@ An Eclipse playground project for prototyping a web-based Spring Boot applicatio
 The following libraries are already integrated:
 - Spring MVC with Thymeleaf 3.0 and Layout Dialect
 - Spring Security
-- ActiveMQ
+- JMS with ActiveMQ
 - JDBC with HikariCP, Postgres and Flyway
 - Ebean ORM
 
