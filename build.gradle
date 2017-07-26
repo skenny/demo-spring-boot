@@ -30,7 +30,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // override spring-boot default 2.x version
-ext["thymeleaf.version"] = "3.0.6.RELEASE"
+ext["thymeleaf.version"] = "3.0.7.RELEASE"
 
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
@@ -40,7 +40,7 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	compile 'org.springframework.boot:spring-boot-devtools'
 	compile 'org.springframework:spring-jdbc'
-	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4'
+	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'
 	compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.2.2'
 	compile 'com.zaxxer:HikariCP:2.6.2'
 	compile 'org.apache.activemq:activemq-broker'

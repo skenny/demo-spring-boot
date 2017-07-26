@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<body>
 		<div th:fragment="header">
 			Header Fragment!
-			<form id="logout" th:action="@{/logout}" method="POST">
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			</form>
-			<a href="javascript:document.getElementById('logout').submit()">Logout</a>
+			<div sec:authorize="isAuthenticated()">
+				<form id="logout" th:action="@{/logout}" method="POST"></form>
+				<a href="javascript:document.getElementById('logout').submit()">Logout</a>
+			</div>
 		</div>
 	</body>
 </html>
