@@ -5,7 +5,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="users")
-public class User extends AbstractModel {
+public class User extends AbstractModel implements Comparable<User> {
 
 	private String firstName;
 	private String lastName;
@@ -23,8 +23,17 @@ public class User extends AbstractModel {
 	public String getLastName() { return lastName; }
 	public void setLastName(String lastName) { this.lastName = lastName; }
 
-	public String toString() {
+	public String getName() {
 		return String.format("%s %s", firstName, lastName);
+	}
+
+	@Override
+	public String toString() {
+		return getName();
+	}
+
+	public int compareTo(User o) {
+		return getName().compareTo(o.getName());
 	}
 
 }

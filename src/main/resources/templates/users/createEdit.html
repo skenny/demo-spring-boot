@@ -16,14 +16,15 @@
 						</tr>
 						<tr>
 							<td class="label">First Name</td>
-							<td th:text="*{firstName}" />
+							<td><input type="text" th:field="*{firstName}" /></td>
 						</tr>
 						<tr>
 							<td class="label">Last Name</td>
-							<td th:text="*{lastName}" />
+							<td><input type="text" th:field="*{lastName}" /></td>
 						</tr>
 					</tbody>
 				</table>
+				<input type="submit" value="Save" />
 			</form>
 		</th:block>
     </body>

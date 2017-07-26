@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,22 +24,29 @@ public class UserController {
 		return "/users/list";
 	}
 
+	@GetMapping(value="/create")
+	public String create(Model model) {
+		model.addAttribute("user", new User());
+		return "/users/createEdit";
+	}
+
 	@GetMapping(value="/{id}")
 	public String view(@PathVariable long id, Model model) {
 		model.addAttribute("user", userRepository.getById(id));
 		return "/users/createEdit";
 	}
 
-	@GetMapping(value="/save")
+	@PostMapping(value="/save")
 	public String save(
+		@RequestParam(value="id") Integer id,
 		@RequestParam(value="firstName") String firstName,
 		@RequestParam(value="lastName") String lastName
 	) {
-		User user = new User();
+		User user = id == null ? new User() : userRepository.getById(id);
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		user.save();
-		return "redirect:/users/" + user.getId();
+		return "redirect:/users";
 	}
 
 }
