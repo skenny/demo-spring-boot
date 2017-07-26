@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<th:block layout:fragment="content">
-			<form th:action="@{/users/save}" th:object="${user}" method="POST">
+			<form action="#" th:action="@{/users/save}" th:object="${user}" method="POST">
 				<input type="hidden" name="id" value="" th:value="*{id}" />
 				<table>
 					<tbody>

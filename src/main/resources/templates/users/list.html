@@ -9,7 +9,7 @@
 			<h1>Users</h1>
 			<ul>
 				<li th:each="user : ${#lists.sort(users)}">
-					<a th:href="@{|/users/${user.id}}" th:text="${user}">User Name</a>
+					<a href="#" th:href="@{|/users/${user.id}|}" th:text="${user}">User Name</a>
 				</li>
 			</ul>
 			<a href="#" th:href="@{/users/create}">Add New User</a>
