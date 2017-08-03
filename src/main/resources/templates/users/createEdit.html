@@ -2,7 +2,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
 	<head>
-		<title>Edit User</title>
+		<title>User: [[${user.name}]]</title>
 	</head>
 	<body>
 		<th:block layout:fragment="content">
@@ -15,12 +15,22 @@
 							<td th:text="*{id}" />
 						</tr>
 						<tr>
+							<td class="label">Username</td>
+							<td><input type="text" th:field="*{username}" /></td>
+						</tr>
+						<tr>
 							<td class="label">First Name</td>
 							<td><input type="text" th:field="*{firstName}" /></td>
 						</tr>
 						<tr>
 							<td class="label">Last Name</td>
 							<td><input type="text" th:field="*{lastName}" /></td>
+						</tr>
+						<tr>
+							<td class="label">Role</td>
+							<td>
+								<label th:each="role : ${roles}"><input type="checkbox" name="roles" value="" th:value="${role}" th:checked="${user.hasRole(role)}" /> [[${role}]]</label>
+							</td>
 						</tr>
 					</tbody>
 				</table>

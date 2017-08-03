@@ -19,6 +19,10 @@ public class UserRepository {
 		return Ebean.find(User.class, id);
 	}
 
+	public User findByUsername(String username) {
+		return server.find(User.class).where().eq("username", username).findOne();
+	}
+
 	public List<User> getAll() {
 		return server.find(User.class).findList();
 	}
