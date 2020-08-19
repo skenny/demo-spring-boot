@@ -1,21 +1,23 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.4.RELEASE'
-		ebeanVersion = '10.2.3'
+		springBootVersion = '2.2.6.RELEASE'
 	}
 	repositories {
 		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
 	}
 	dependencies {
 		classpath 'org.springframework.boot:spring-boot-gradle-plugin:' + springBootVersion
-		classpath 'io.ebean:ebean-gradle-plugin:' + ebeanVersion
+		classpath 'io.ebean:ebean-gradle-plugin:12.1.9'
 	}
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'io.ebean'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'ebean'
+apply plugin: 'io.spring.dependency-management'
 
 jar {
 	baseName = 'demo-spring-boot'
@@ -26,32 +28,35 @@ repositories {
 	mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-// override spring-boot default 2.x version
-ext["thymeleaf.version"] = "3.0.7.RELEASE"
-
-dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-actuator'
-	compile 'org.springframework.boot:spring-boot-starter-web'
-	compile 'org.springframework.boot:spring-boot-starter-security'
-	compile 'org.springframework.boot:spring-boot-starter-activemq'
-	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	compile 'org.springframework.boot:spring-boot-devtools'
-	compile 'org.springframework:spring-jdbc'
-	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'
-	compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.2.2'
-	compile 'com.zaxxer:HikariCP:2.6.2'
-	compile 'org.apache.activemq:activemq-broker'
-	compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
-	compile 'org.flywaydb:flyway-core:4.2.0'
-	compile 'io.ebean:ebean:10.4.1'
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
-	testCompile 'org.springframework.security:spring-security-test'
-	testCompile "org.avaje.composite:composite-testing:3.1"
+compileJava {
+	sourceCompatibility = 11
+	targetCompatibility = 11
 }
 
-task wrapper(type: Wrapper) {
-	gradleVersion = '4.0'
+// override spring-boot default 2.x version
+ext["thymeleaf.version"] = "3.0.11.RELEASE"
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-activemq'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework:spring-jdbc'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.4.1'
+	implementation 'com.zaxxer:HikariCP:3.4.1'
+	implementation 'org.apache.activemq:activemq-broker'
+	implementation 'org.postgresql:postgresql:42.2.8'
+	implementation 'org.flywaydb:flyway-core:6.0.8'
+	implementation 'io.ebean:ebean:12.1.9'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation "org.avaje.composite:composite-testing:3.1"
+}
+
+wrapper() {
+	gradleVersion = '5.4.1'
 }
